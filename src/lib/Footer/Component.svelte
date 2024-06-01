@@ -16,13 +16,13 @@
 
 <div style="height: 24px" />
 <div class="footer">
-    PenguinMod is not affiliated with TurboWarp, Scratch, the Scratch Team, or
+    Espresso is not affiliated with PenguinMod, TurboWarp, Scratch, the Scratch Team, or
     the Scratch Foundation.
 </div>
 <div class="links">
     <a
         target="_blank"
-        href="https://github.com/PenguinMod/PenguinMod-ExtensionsGallery"
+        href="https://github.com/EspressoBlocks/espresso-extensions"
     >
         GitHub
     </a>
@@ -34,7 +34,6 @@
         Submitting an extension
     </a>
     <span style="margin: 0px 6px;">-</span>
-    <a target="_blank" href="https://discord.gg/NZ9MBMYTZh">Discord</a>
 </div>
 <div style="height: 12px" />
 <div class="footer">

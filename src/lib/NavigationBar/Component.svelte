@@ -1,11 +1,10 @@
 <script>
     import { createEventDispatcher } from "svelte";
-    import { searchRecommendations } from '$lib/stores.js';
+    import { searchRecommendations, showingAddSourceModal } from '$lib/stores.js';
     import {onMount} from 'svelte';
 
     // Components
     import BarPage from "./Page.svelte";
-    import BarButton from "./Button.svelte";
     import SearchSVG from "./SearchIcon.svelte";
 
     const toggleTheme = () => {
@@ -27,6 +26,9 @@
 
         dispatch("search", searchTerm);
     };
+    const showAddSourceModal = () => {
+        $showingAddSourceModal = !$showingAddSourceModal;
+    }
     searchRecommendations.subscribe(() => {
         if (!searchInput) return;
         searchInput.focus();
@@ -40,13 +42,15 @@
 
 <div class="bar">
     <a class="logo" href="/">
-        <img class="logo-image" src="/navicon.png" alt="PenguinMod" />
+        <img class="logo-image" src="/espressoSmall.svg" alt="Espresso" />
     </a>
     <div style="margin-right: 12px;"></div>
     <BarPage style="padding:0.5rem" on:click={toggleTheme}>
         <img src="/icons/moon.svg" alt="Theme" />
     </BarPage>
-    <BarPage link={"/docs"}>Documentation</BarPage>
+    <button on:click={showAddSourceModal}>
+        Add Source
+    </button>
 
     {#if displaySearchBar}
         <div class="search">
@@ -79,22 +83,11 @@
             {/each}
         </div>
     {/if}
-    
-    <BarButton
-        highlighted="true"
-        link={"https://discord.gg/NZ9MBMYTZh"}
-        noredirect="true"
-    >
-        Join our Discord!
-    </BarButton>
 </div>
 
 <style>
     :root {
-        --penguinmod-color: #00c3ff;
-    }
-    :global(body.dark-mode) {
-        --penguinmod-color: #009ccc;
+        --penguinmod-color: #742e00;
     }
 
     .bar {
@@ -102,7 +95,7 @@
         width: 100%;
         left: 0px;
         top: 0px;
-        background: var(--penguinmod-color);
+        background-color: #333;
         height: 3rem;
         color: white;
         display: flex;
@@ -110,11 +103,13 @@
         align-items: center;
         flex-wrap: nowrap;
         box-sizing: border-box;
-        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        border-bottom: 4px solid brown;
         font-size: 0.75rem;
         font-weight: bold;
         min-width: 1000px;
-        z-index: 1000;
+        /*z-index: 1000;*/
+        z-index: 100;
     }
     @media only screen and (min-width: 850px) {
         .bar {
@@ -208,5 +203,15 @@
     }
     .search-recommendation:active {
         filter: brightness(0.8);
+    }
+
+    button {
+        background-color: #222;
+        color: white;
+        font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        padding: 5px;
+        border-radius: 12px;
+        border: 2px solid brown;
+        cursor: pointer;
     }
 </style>

@@ -1,5 +1,6 @@
 <script>
     import { selectedRecommendedExt, searchRecommendations } from '$lib/stores.js';
+    import { onMount } from 'svelte';
 
     export let name = "Test";
     export let image = "/images/example.png";
@@ -7,8 +8,8 @@
     export let creator = "";
     export let isGitHub = false;
 
-    const baseUrl = "https://studio.penguinmod.com/editor.html?extension=";
-
+    const baseUrl = "https://espressoblocks.com/editor.html?extension=";
+    
     /**
      * The button to copy the URL
      * @type {HTMLButtonElement}
@@ -120,9 +121,11 @@
             >
                 Copy URL
             </button>
-            <a href={baseUrl + url} target="_blank">
-                <button class="purple">View</button>
-            </a>
+            {#if url.length < 16000}
+                <a href={baseUrl + url} target="_blank">
+                    <button class="purple">View</button>
+                </a>
+            {/if}
         </div>
     </div>
 </div>
