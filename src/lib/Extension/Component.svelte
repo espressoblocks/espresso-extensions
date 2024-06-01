@@ -5,7 +5,6 @@
     export let image = "/images/example.png";
     export let url = "";
     export let creator = "";
-    export let documentation = "";
     export let isGitHub = false;
 
     const baseUrl = "https://studio.penguinmod.com/editor.html?extension=";
@@ -109,11 +108,6 @@
                 >
                     {creator}.
                 </a>
-            </p>
-        {/if}
-        {#if documentation}
-            <p>
-                <a href={`/docs/${documentation}`}> Extension Documentation </a>
             </p>
         {/if}
     </div>

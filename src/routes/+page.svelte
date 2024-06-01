@@ -65,7 +65,6 @@
                     creator={extension.creator}
                     url={createExtUrl(extension.code)}
                     relUrl={extension.code}
-                    documentation={extension.documentation}
                     isGitHub={String(extension.isGitHub) === "true"}
                 >
                     {extension.description}

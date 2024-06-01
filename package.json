@@ -8,9 +8,6 @@
 		"preview": "vite preview"
 	},
 	"type": "module",
-	"dependencies": {
-		"markdown-it": "^13.0.1"
-	},
 	"devDependencies": {
 		"@sveltejs/adapter-cloudflare": "^4.4.0",
 		"@sveltejs/kit": "^2.5.10",
